@@ -1,5 +1,5 @@
 ---
-title: Hypotéka od roku 2019: Sprísnené podmienky a nové limity
+title: "Hypotéka od roku 2019: Sprísnené podmienky a nové limity"
 pubDate: 2020-01-01
 description: Od roku 2019 banky sprísnili podmienky hypoték. Článok vysvetľuje, čo znamenajú ukazovatele LTV a DTI, ako obmedzujú výšku úveru a prečo dnes hypotéku nezíska každý.
 author: "Hypotekarny expert"

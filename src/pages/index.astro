@@ -12,7 +12,7 @@ const posts = await getCollection("blog");
 const sortedPosts = posts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-sortedPosts.splice(1);
+sortedPosts.splice(3);
 ---
 
 <BaseLayout title={SITE.title} description={SITE.description}>
