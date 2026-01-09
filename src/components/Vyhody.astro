@@ -1,0 +1,21 @@
+---
+const icons = [
+    { description: 'Výhodnejšie podmienky pri získaní hypotéky', source: './src/assets/images/hypo-expert-1.svg' },
+    { description: 'Najlepšie ponuky pre žiadateľa o hypotéku', source: './src/assets/images/hypo-expert-2.svg' },
+    { description: 'Profesionálne služby najvyššej kvality', source: './src/assets/images/hypo-expert-3.svg' },
+    { description: 'Špecializácia na hypotekárne a spotrebné úvery', source: './src/assets/images/hypo-expert-4.svg' },
+    { description: 'Možnosť dlhodobej spolupráce pre obchodníkov', source: './src/assets/images/hypo-expert-5.svg' },
+    { description: 'Stovky spokojných klientov', source: './src/assets/images/hypo-expert-6.svg' },
+]
+---
+
+<div class="mt-10 grid gap-6 lg:grid-cols-3">
+    {
+        icons.map((icon) => (
+            <div class="flex flex-col items-center text-center gap-4 p-6 bg-paper-alt/45 rounded-2xl shadow-sm animate-target opacity-0 transition-all duration-700">
+                <img src={icon.source} alt={icon.description} class="h-16 w-16" />
+                <p class="text-ink text-sm">{icon.description}</p>
+            </div>
+        ))
+    }
+</div>

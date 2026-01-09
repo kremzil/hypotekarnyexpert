@@ -8,10 +8,13 @@ import { SITE } from "../config/site";
 const {
   title = SITE.title,
   description = SITE.description,
-  image
+  image,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, SITE.url || Astro.url.origin).toString();
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  SITE.url || Astro.url.origin
+).toString();
 const ogImage = image || SITE.ogImage;
 ---
 
@@ -32,5 +35,6 @@ const ogImage = image || SITE.ogImage;
       <slot />
     </main>
     <Footer />
+    <script src="../scripts/fadeIn.js"></script>
   </body>
 </html>

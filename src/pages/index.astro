@@ -4,6 +4,15 @@ import { SITE } from "../config/site";
 import { Image  } from "astro:assets";
 import intro from '../assets/images/intro.webp';
 import HypotekarnaKalkulacka from "../components/HypotekarnaKalkulacka.astro";
+import Vyhody from "../components/Vyhody.astro";
+import PostCard from "../components/PostCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+sortedPosts.splice(1);
 ---
 
 <BaseLayout title={SITE.title} description={SITE.description}>
@@ -19,8 +28,8 @@ import HypotekarnaKalkulacka from "../components/HypotekarnaKalkulacka.astro";
       nasmerovať vás presne tam, kam chcete.
     </p>
     <div class="flex gap-4">
-      <a href="/hypoteky" class="button-primary">Najvýhodnejšie hypotéky</a>
-      <a href="/spotrebne-uravy" class="button-light">Spotrebné úvery</a>
+      <a href="/blog" class="button-primary">Najnovšie članky</a>
+      <a href="/o-mne" class="button-light">Viac o mne</a>
     </div>
     </div>
     <div class="flex-none w-1/2 hidden md:block">
@@ -31,12 +40,24 @@ import HypotekarnaKalkulacka from "../components/HypotekarnaKalkulacka.astro";
            />
     </div>
   </section>
-  <section class="bg-paper-alt">
-    <div class="page-container section-space">
-      <h2>Hypotekárna kalkulačka</h2>
+  <section class="bg-linear-to-tr from-paper to bg-paper-alt">
+    <div id="kalkulacka" class="page-container section-space">
+      <h2><span class="text-accent">Hypotekárna</span> kalkulačka</h2>
       <HypotekarnaKalkulacka />
-
     </div>
-
+  </section>
+  <section class="page-container section-space">
+    <h2><span class="text-accent">Prečo</span> hypotekárny expert?</h2>
+    <Vyhody />
+  </section>
+    <section class="bg-linear-to-tl from-paper to bg-paper-alt">
+    <div class="page-container section-space">
+    <h1 class="mb-6 text-3xl font-semibold md:text-5xl"><span class="text-accent">Aktualne</span> články</h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-target opacity-0 transition-all duration-700">
+      {sortedPosts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+    </div>
   </section>
 </BaseLayout>
