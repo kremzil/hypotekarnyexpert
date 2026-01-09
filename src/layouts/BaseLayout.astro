@@ -16,6 +16,7 @@ const canonicalURL = new URL(
   SITE.url || Astro.url.origin
 ).toString();
 const ogImage = image || SITE.ogImage;
+import ScrollTop from "../components/ScrollTop.astro";
 ---
 
 <html lang={SITE.lang}>
@@ -35,6 +36,7 @@ const ogImage = image || SITE.ogImage;
       <slot />
     </main>
     <Footer />
+    <ScrollTop />
     <script src="../scripts/fadeIn.js"></script>
   </body>
 </html>

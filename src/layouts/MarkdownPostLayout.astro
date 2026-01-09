@@ -18,7 +18,7 @@ const formattedDate = new Intl.DateTimeFormat(SITE.dateLocale, {
 ---
 
 <BaseLayout title={title} description={description} image={imageUrl}>
- <main class="surface  pt-20 pb-16">
+ <main class="page-container  pt-20 pb-16">
 
     <article class="card relative mx-auto max-w-170 px-4 pb-12 pt-10 sm:px-6 sm:pb-16 lg:pt-16">
                   <ShareButtons />
@@ -44,7 +44,7 @@ const formattedDate = new Intl.DateTimeFormat(SITE.dateLocale, {
           ))}
         </div>
       )}
-      <div class="min-h-10 border-b-1 border-dark/20"></div>
+      <div class="min-h-10 border-b border-dark/20"></div>
 
       {imageUrl && (
         <div class="card mt-8 overflow-hidden shadow-lg">

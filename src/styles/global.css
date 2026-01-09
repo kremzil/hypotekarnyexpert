@@ -37,7 +37,7 @@
   .section-space { @apply py-14 lg:py-20; }
   .card { @apply rounded-2xl bg-ink shadow-sm shadow-paper-alt; }
   .card-lg { @apply rounded-3xl bg-ink shadow-sm; }
-  .panel { @apply rounded-2xl ring-1 ring-black/5; }
+  .panel { @apply rounded-2xl p-6 ring-1 ring-black/5; }
   .eyebrow { @apply font-semibold uppercase tracking-[0.25em]; }
   .button-primary { @apply inline-flex items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-semibold text-paper shadow-sm transition hover:bg-accent/90 no-underline hover:no-underline; }
   .button-light { @apply inline-flex items-center justify-center rounded-md bg-ink px-6 py-2.5 text-sm font-semibold text-paper shadow-sm transition hover:bg-white/90 no-underline hover:no-underline; }
