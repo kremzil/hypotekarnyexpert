@@ -1,0 +1,31 @@
+---
+import { SITE } from "../config/site";
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  canonicalURL,
+  image,
+  noindex = false
+} = Astro.props;
+
+const fullTitle = title === SITE.title ? title : `${title} | ${SITE.title}`;
+---
+
+<title>{fullTitle}</title>
+<meta name="generator" content={Astro.generator} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="description" content={description} />
+{canonicalURL && <link rel="canonical" href={canonicalURL} />}
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+{canonicalURL && <meta property="og:url" content={canonicalURL} />}
+{image && <meta property="og:image" content={image} />}
+
+<meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+{image && <meta name="twitter:image" content={image} />}

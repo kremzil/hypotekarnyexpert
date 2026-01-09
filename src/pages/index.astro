@@ -1,16 +1,40 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../config/site";
+import { Image  } from "astro:assets";
+import intro from '../assets/images/intro.webp';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={SITE.title} description={SITE.description}>
+  <section class="page-container section-space flex flex-col md:flex-row items-center md:min-h-[80vh] md:overflow-hidden lg:overflow-visible">
+    <div class="flex flex-col gap-6 flex-auto justify-center">
+    <h1 class="mb-6  font-semibold">
+      <span class="text-accent">Najvýhodnejšie</span> hypotéky pre každého
+    </h1>
+    <p class="max-w-2xl text-lg text-muted">
+      Volám sa Hypotekárny expert. Mám iba jeden cieľ – poskytovať kvalitné a
+      profesionálne služby v oblasti hypotekárnych a spotrebných úverov. Mojou
+      filozofiou je pomôcť vám zorientovať sa v navonok zložitom svete úverov a
+      nasmerovať vás presne tam, kam chcete.
+    </p>
+    <div class="flex gap-4">
+      <a href="/hypoteky" class="button-primary">Najvýhodnejšie hypotéky</a>
+      <a href="/spotrebne-uravy" class="button-light">Spotrebné úvery</a>
+    </div>
+    </div>
+    <div class="flex-none w-1/2 hidden md:block">
+     <Image
+     src={intro}
+      alt="Hypotekárny expert"
+      class="translate-10"
+           />
+    </div>
+  </section>
+  <section class="bg-paper-alt">
+    <div class="page-container section-space">
+      <h2>Hypotekárna kalkulačka</h2>
+
+    </div>
+
+  </section>
+</BaseLayout>

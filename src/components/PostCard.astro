@@ -1,0 +1,25 @@
+---
+import { SITE } from "../config/site";
+
+const { post } = Astro.props;
+const postHref = `/blog/${post.id}/`;
+const formattedDate = new Intl.DateTimeFormat(SITE.dateLocale, {
+  year: "numeric",
+  month: "short",
+  day: "2-digit",
+}).format(post.data.pubDate);
+---
+
+<a href={postHref}>
+  <article
+    class="card p-6 transition-transform duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-lg"
+  >
+    <h2 class="mb-2 text-2xl font-semibold text-dark">
+      {post.data.title}
+    </h2>
+    <p class="mb-3 text-dark">{post.data.description}</p>
+    <div class="flex gap-3 text-sm text-dark">
+      <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+    </div>
+  </article>
+</a>

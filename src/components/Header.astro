@@ -1,0 +1,35 @@
+---
+import { SITE } from "../config/site";
+import { navItems } from "../config/nav";
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-ink/10 py-6">
+  <div class="page-container flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <a class="inline-flex items-center no-underline" href="/">
+        <img class="h-12 w-auto" src="/logo.svg" alt={SITE.title} />
+        <span class="sr-only">{SITE.title}</span>
+      </a>
+    </div>
+    <nav class="flex items-center gap-4">
+      {
+        navItems.map((item) => (
+          <a
+            class="border-b-2 border-transparent pb-1 no-underline text- decoration-accent hover:border-accent"
+            href={item.href}
+            class:list={[
+              "text-md font-medium transition-colors",
+              {
+                "text-accent": currentPath === item.href,
+                "text-ink hover:text-accent": currentPath !== item.href,
+              },
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

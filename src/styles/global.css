@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Source Sans Pro', 'sans-sans';
+  --color-paper: #0b1437;
+  --color-ink: #f6f4ef;
+  --color-muted: #f0ede3;
+  --color-dark: #1a1a1a;
+  --color-accent: #FFC214;
+  --color-paper-alt: #3c4f75;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans leading-relaxed;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+    html { scroll-behavior: smooth; }
+
+  h1 { @apply font-sans text-4xl md:text-7xl font-semibold tracking-tight; }
+  h2 { @apply font-sans text-3xl md:text-4xl font-semibold tracking-tight; }
+  h3 { @apply font-sans text-2xl md:text-3xl font-normal; }
+}
+
+@layer components {
+  .page-container { @apply mx-auto max-w-6xl px-4 sm:px-6; }
+  .page-container-narrow { @apply mx-auto max-w-5xl px-4 sm:px-6; }
+  .section-space { @apply py-14 lg:py-20; }
+  .card { @apply rounded-2xl bg-ink shadow-sm shadow-paper-alt; }
+  .card-lg { @apply rounded-3xl bg-ink shadow-sm; }
+  .panel { @apply rounded-2xl ring-1 ring-black/5; }
+  .eyebrow { @apply font-semibold uppercase tracking-[0.25em]; }
+  .button-primary { @apply inline-flex items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-semibold text-paper shadow-sm transition hover:bg-accent/90 no-underline hover:no-underline; }
+  .button-light { @apply inline-flex items-center justify-center rounded-md bg-ink px-6 py-2.5 text-sm font-semibold text-paper shadow-sm transition hover:bg-white/90 no-underline hover:no-underline; }
+  .link-accent { @apply text-accent no-underline hover:underline; }
+
+}

@@ -1,0 +1,11 @@
+---
+import { SITE } from "../config/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-ink/10 py-8 text-sm text-muted">
+  <div class="page-container">
+    <span>(c) {year} {SITE.title}. All rights reserved.</span>
+  </div>
+</footer>
