@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE } from "../config/site";
 import { Image  } from "astro:assets";
 import intro from '../assets/images/intro.webp';
+import HypotekarnaKalkulacka from "../components/HypotekarnaKalkulacka.astro";
 ---
 
 <BaseLayout title={SITE.title} description={SITE.description}>
@@ -33,6 +34,7 @@ import intro from '../assets/images/intro.webp';
   <section class="bg-paper-alt">
     <div class="page-container section-space">
       <h2>Hypotekárna kalkulačka</h2>
+      <HypotekarnaKalkulacka />
 
     </div>
 

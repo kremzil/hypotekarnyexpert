@@ -27,8 +27,8 @@
     html { scroll-behavior: smooth; }
 
   h1 { @apply font-sans text-4xl md:text-7xl font-semibold tracking-tight; }
-  h2 { @apply font-sans text-3xl md:text-4xl font-semibold tracking-tight; }
-  h3 { @apply font-sans text-2xl md:text-3xl font-normal; }
+  h2 { @apply font-sans text-3xl md:text-5xl font-semibold tracking-tight; }
+  h3 { @apply font-sans text-2xl md:text-3xl font-semibold; }
 }
 
 @layer components {
