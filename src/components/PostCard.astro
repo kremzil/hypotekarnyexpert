@@ -12,14 +12,20 @@ const formattedDate = new Intl.DateTimeFormat(SITE.dateLocale, {
 
 <a href={postHref}>
   <article
-    class="card p-6 transition-transform duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-lg"
+    class="card flex flex-col justify-between md:min-h-96 p-6 transition-transform duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-lg"
   >
-    <h2 class="mb-2 text-2xl font-semibold text-dark">
+  <div>  
+  <h2 class="md:h-25 mb-4 text-2xl font-semibold text-dark hover:underline leading-snug line-clamp-3">
       {post.data.title}
     </h2>
     <p class="mb-3 text-dark">{post.data.description}</p>
-    <div class="flex gap-3 text-sm text-dark">
-      <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+    </div>
+     <div>
+    <div class="flex justify-between text-sm text-dark">
+      <time class="flex" datetime={post.data.pubDate?.toISOString()}>{formattedDate}</time>
+     
+      <span class="flex hover:text-accent">Čitať ďalej →</span>
+      </div>
     </div>
   </article>
 </a>
