@@ -9,6 +9,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
+  build: {
+    inlineStylesheets: "always",
+  },
   site: 'https://hypotekarnyexpert.sk',
   integrations: [sitemap()],
 });
