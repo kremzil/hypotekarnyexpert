@@ -1,0 +1,66 @@
+name: Build & Deploy Astro
+
+on:
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy via SFTP (lftp)
+        env:
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASS: ${{ secrets.SFTP_PASS }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+          HOST="hypotekarnyexpert.sk"
+          PORT="22"
+
+          # Важно: dist/ должна существовать
+          test -d dist || (echo "dist/ not found"; exit 1)
+
+          lftp -u "$SFTP_USER","$SFTP_PASS" "sftp://$HOST:$PORT" <<'EOF'
+          set sftp:auto-confirm yes
+          set net:timeout 20
+          set net:max-retries 2
+          set cmd:fail-exit yes
+
+          # Диагностика: где мы вообще оказались
+          pwd
+          ls
+
+          # Пытаемся найти webroot
+          cd hypotekarnyexpert.sk/web || cd web || cd public_html
+
+          echo "=== TARGET DIR ==="
+          pwd
+          ls
+
+          # Заливаем содержимое dist/ в текущую папку (создаёт подпапки)
+          mirror -R --only-newer --parallel=2 dist/ .
+
+          bye
+          EOF
