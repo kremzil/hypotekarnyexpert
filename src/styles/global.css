@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Source Sans Pro', 'sans-sans';
+  --font-sans: "Source Sans Pro", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
   --color-paper: #0b1437;
   --color-ink: #f6f4ef;
   --color-muted: #f0ede3;
@@ -11,20 +13,13 @@
 }
 
 @layer base {
-  *,
-  *::before,
-  *::after {
-    @apply box-border;
-  }
+  *, *::before, *::after { @apply box-border; }
 
-  body {
-    @apply bg-paper text-ink font-sans leading-relaxed;
-  }
+  html { scroll-behavior: smooth; }
 
-  img {
-    @apply block max-w-full;
-  }
-    html { scroll-behavior: smooth; }
+  body { @apply bg-paper text-ink font-sans leading-relaxed; }
+
+  img { @apply block max-w-full; }
 
   h1 { @apply font-sans text-4xl md:text-7xl font-semibold tracking-tight; }
   h2 { @apply font-sans text-3xl md:text-5xl font-semibold tracking-tight; }
