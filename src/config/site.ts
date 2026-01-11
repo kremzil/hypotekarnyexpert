@@ -5,5 +5,5 @@ export const SITE = {
   url: "https://hypotekarnyexpert.sk/",
   author: "Hypotekárny expert",
   dateLocale: "sk-SK",
-  ogImage: "/og-default.webp"
+  ogImage: "/og-default.png"
 };
